@@ -22,14 +22,25 @@ Re-init: `pudl init --force` (destructive, prefer not).
 
 ## Per-repo setup
 
-No `pudl init` flag for repo scope. To opt a repo into pudl-aware workflows:
+From repo root:
 
-1. `mkdir -p .pudl/schema/pudl/rules` — repo-scoped rules dir (shadows global)
-2. Decide gitignore policy:
-   - **Commit `.pudl/`** if team shares schemas/rules (reproducible queries)
-   - **Gitignore `.pudl/`** if pudl is your personal tool here
-3. Start importing: `pudl import --path <file>` — entries land in the global catalog, tagged by source
-4. Verify: `pudl list` shows imported entries; `pudl schema list` shows assigned schemas
+```
+pudl repo init        # creates .pudl/ marker + .claude/skills/ for agent integration
+pudl repo validate    # validate all repo schemas + definitions
+```
+
+`pudl repo init` creates:
+- `.pudl/` — repo overlay marker
+- `.claude/skills/` — PUDL skill files for agents
+
+Then decide gitignore policy:
+- **Commit `.pudl/`** if team shares schemas/rules (reproducible queries)
+- **Gitignore `.pudl/`** if pudl is your personal tool here
+
+Start importing: `pudl import --path <file>` — entries land in the global catalog.
+Verify: `pudl list` shows entries; `pudl schema list` shows assigned schemas.
+
+Re-init: `pudl repo init --force`.
 
 ## Verify install before doing anything
 
