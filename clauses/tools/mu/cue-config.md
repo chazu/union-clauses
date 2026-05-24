@@ -33,6 +33,14 @@ preprocessor: {...}   # transform non-JSON config (extension, command)
 
 mu downloads, verifies, extracts, registers files as artifacts. Available to plugins as `toolchain_artifacts` in plan requests.
 
+**Implicit contracts** (else `mu scratch` fails):
+- Archive: `.tar.gz` / `.tgz` / `.tar.xz` / `.txz` / `.zip` (else treated as raw binary)
+- After extract + `strip_prefix`, binary must exist at `bin/<toolchain>` or `<toolchain>`
+- Binary must respond to `version` or `--version` with exit 0
+- Pre-compiled only — no post-extract build step. Source-only? Use `MU_SCRATCH=<command>` to delegate.
+
+See `mu guide toolchains` for full failure-mode table.
+
 ## Plugin entry
 
 One of:
