@@ -64,9 +64,3 @@ Run after disk errors or aborted operations.
 - `--no-discover-cache` — bypass cached plugin `discover` (after editing plugin)
 - Set `impure: true` on the action — never cache (convergence side effects)
 
-## Authoritative
-
-```
-mu guide cache               # cache config reference
-mu guide sandbox             # isolation modes
-```
