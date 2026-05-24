@@ -112,12 +112,3 @@ Plugin can be:
 
 Targets can carry `plan: "..."` / `transform: "..."` pith programs that replace plugin dispatch entirely. Useful for one-off logic where a full plugin is overkill. See `mu guide pith-plugins`.
 
-## Authoritative references
-
-```
-mu guide plugins             # writing/loading/distributing
-mu guide protocol            # full NDJSON wire format
-mu guide pith-plugins        # inline VM-based variants
-mu guide secret-providers    # implementing resolve_secret / store_secret
-mu guide plugin <name>       # any specific plugin's GUIDE.md
-```
