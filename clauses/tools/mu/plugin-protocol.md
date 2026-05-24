@@ -195,5 +195,3 @@ Plugin must: declare `advise_phases` in discover. Errors are non-fatal (logged, 
 3. **Secret hygiene** — values never in cache/manifest/logs; refs+modes are cache-key metadata
 4. **Cross-target wiring** — producer's `declared_outputs` ↔ consumer's `deps[].artifacts`
 5. **`sealed_outputs` forces `impure: true`** — store_secret side effect must always fire
-
-Authoritative: `mu guide protocol`.
