@@ -11,19 +11,9 @@ pudl facts list --relation observation --as-of-valid 2026-01-01
 
 Bitemporal store retains old versions automatically — no manual diffing.
 
-## Record an observation about code
+## Record an observation
 
-```
-pudl observe "auth has circular dep with user" \
-  --kind obstacle --scope myapp:pkg/auth --source claude-code
-```
-
-Query later:
-```
-pudl facts list --relation observation --source claude-code
-```
-
-See `personal:tools/pudl/observations` for full guidance.
+See `personal:tools/pudl/observations`.
 
 ## Join two sources via datalog
 
@@ -39,15 +29,9 @@ orphan($x)    :- node($x), not reachable($x).
 
 Then `pudl query orphan`.
 
-## Inspect what's in the catalog
+## Inspect catalog
 
-```
-pudl list                       # all entries
-pudl list --schema aws.#Instance
-pudl schema list                # all known schemas (built-in marked)
-pudl facts stats                # fact-store aggregates
-pudl doctor                     # workspace health
-```
+See `personal:tools/pudl/ingest` ("Verify ingest succeeded").
 
 ## Reset
 
