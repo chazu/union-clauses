@@ -136,13 +136,3 @@ Pudl emits **desired state**, not drift diffs. File plugin receives `{"path": ".
 - Pure builds, no live state → just `mu build`
 - Read-only analysis of repo → just `pudl import`
 
-## Authoritative
-
-```
-mu guide pudl          # mu's view
-pudl guide mu          # pudl's view
-pudl guide drift       # drift mechanics
-pudl guide schemas     # CUE side of BRICK
-```
-
-Recipes: see `personal:tools/mu/converge-recipes`.
