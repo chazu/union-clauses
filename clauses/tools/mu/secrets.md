@@ -80,10 +80,3 @@ Idempotent with `create_if_absent` — won't regenerate if already present.
 
 Implement `resolve_secret` + `store_secret` together. Declare both in `capabilities`. See `personal:tools/mu/plugin-protocol` and `mu guide secret-providers`.
 
-## Authoritative
-
-```
-mu guide secrets             # user reference
-mu guide secret-gen          # built-in derivation toolchain
-mu guide secret-providers    # implementing providers
-```
