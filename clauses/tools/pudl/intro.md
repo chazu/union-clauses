@@ -14,13 +14,4 @@ Do NOT use pudl for:
 - Anything needing concurrent writes from multiple processes
 - Streaming/realtime (batch ingest model)
 
-## Verify install + bootstrap
-
-```
-pudl --version
-pudl prime          # canonical agent-facing prompt — read this first
-pudl guide          # topic-based reference (overview, import, schemas, facts, datalog, ...)
-pudl doctor         # workspace health check
-```
-
-`pudl prime` is the single source of truth for the CLI surface. When in doubt, run it. When these clauses disagree with `pudl prime`, trust prime.
+`pudl prime` is the single source of truth for the CLI surface. Run it. When these clauses disagree with `pudl prime`, trust prime.
