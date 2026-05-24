@@ -21,10 +21,6 @@ Adjacency-list graph (`dag.Graph`). Topologically sorted. Workers execute in par
 
 JSON build result, schema `mu.build.manifest/v1`. Fields: `version`, `type`, `timestamp`, `duration_s`, `targets[]`, `actions[]`, `summary` (completed/cached/failed/cancelled). Each action: `id`, `cached`, `exit_code`, `outputs{name→digest}`. BRICK metadata round-trips. Consumed by `pudl import`.
 
-## Sandbox
-
-Linux: namespaces (mount, pid, net). macOS: Seatbelt profile. Fallback: copy isolation. `network: false` (default) blocks net access. `env` is the entire environment — no inheritance.
-
 ## Where things live
 
 ```
@@ -33,3 +29,5 @@ Linux: namespaces (mount, pid, net). macOS: Seatbelt profile. Fallback: copy iso
 <repo>/mu.cue       # root config (auto-discovered by walking up)
 <repo>/**/mu.cue    # sub-configs (auto-merged)
 ```
+
+Sandbox model: see `personal:tools/mu/sandbox-caching`.
