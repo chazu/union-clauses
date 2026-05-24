@@ -1,6 +1,6 @@
 # When to add a schema (and when not to)
 
-Pudl infers schemas on first pull. Inferred schema = fine for exploration. Pin a schema when you need stability, validation, or shared meaning across sources.
+Pudl infers schemas on first pull. Inferred = fine for exploration. Pin when you need stability, validation, or shared meaning across sources.
 
 ## Add a schema when
 
@@ -14,7 +14,7 @@ Pudl infers schemas on first pull. Inferred schema = fine for exploration. Pin a
 ## Skip the schema when
 
 - One-shot exploration (`pudl pull`, poke around, forget)
-- Source format is already authoritative elsewhere (e.g. a generated JSON dump from a typed system — its producer already enforces shape)
+- Source format is already authoritative elsewhere (e.g. typed JSON dump from another system)
 - Data is genuinely free-form (notes, logs) — schema would lie
 - You're still deciding what fields matter — premature pinning locks in wrong identity
 
@@ -25,9 +25,10 @@ Pudl infers schemas on first pull. Inferred schema = fine for exploration. Pin a
 3. Save to repo: `pudl schema export <name> > .pudl/schema/<pkg>/<name>.cue`
 4. Edit the CUE:
    - Tighten types (`string` → enum, `int` → bounded range)
-   - Set `IdentityFields` to the natural key (NOT content hash — hash is automatic)
-   - Set `TrackedFields` to fields whose changes matter (omit `updated_at`, `last_seen`, etc.)
+   - Set `IdentityFields` to the natural key (NOT content hash — hash is automatic). Controls dedup.
+   - Set `TrackedFields` to fields whose changes matter (omit `updated_at`, `last_seen`, etc.). Controls fact churn.
    - Set `BaseSchema` if extending an existing definition (native CUE unification, no priority cascade)
+   - Other optional metadata fields: `SchemaType`, `ResourceType`, `IsListType`
 5. Validate: `pudl schema validate`
 6. Re-pull: `pudl pull <source>` — now enforced
 
